@@ -1,3 +1,26 @@
+# ==============================================================================
+# CF Pages 响应头
+#
+# 唯一入口是 https://git4ta.fun —— CF 的 *.pages.dev 子域**无法真正禁用**
+# （官方：只能 noindex 或 Bulk Redirect；后者需要 zone 级 rulesets 权限，
+#  本账号的 API token 没有那个权限，见 docs 里的说明）。
+# 所以这里用两条规则把 pages.dev 彻底封死：
+#   ① 不给收录（noindex）—— 权重不外泄到平台域名
+#   ② 强制跳到唯一主体域 —— 访问者只会看到 git4ta.fun
+#
+# 判定 host 用的是 CF Pages 的 host 匹配语法，不是 HTTP Host 头。
+# ==============================================================================
+
+# --- pages.dev 子域：封死 ---
+https://navigation-ep9.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+  Location: https://git4ta.fun/${url}
+# 裸域（无路径）单独一条，避免 ${url} 为空时拼出畸形 Location
+https://navigation-ep9.pages.dev
+  X-Robots-Tag: noindex, nofollow
+  Location: https://git4ta.fun/
+
+# --- 唯一主体域：正常服务 ---
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
