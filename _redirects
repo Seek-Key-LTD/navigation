@@ -1,0 +1,8 @@
+# CF Pages 原生重定向规则（比 _headers 的 Location 强：会返回真实 301）
+# 用途：把 pages.dev 子域彻底导向唯一主体域 https://git4ta.fun/
+#
+# CF Pages 的 _redirects 不支持按 host 匹配（只按 path），所以这里用通配路径
+# 把 pages.dev 上的一切都导向主体域；host 维度的封锁由 _headers 的
+# X-Robots-Tag: noindex, nofollow 负责（收录层面封死）。
+# 两者配合 = 收录不进 + 访问即跳。
+/*    https://git4ta.fun/:splat  301
