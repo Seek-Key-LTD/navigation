@@ -1,0 +1,127 @@
+---
+# 声明（gitea-actions-control-plane.md 公约 v0.1）：
+# repository: media/navigation   path: .gitea/workflows/nav-provision.yml
+# purpose: 把 git4ta.fun「门面站上线四步」下单给 Semaphore(信号灯)。执行体与 Cloudflare / GitHub / DNS 凭据集中在信号灯席位，本工作流只派单，不落地任何机密。
+# trigger: workflow_dispatch only
+# execution_class: 门面站 provision（Gitea→GitHub 镜像 · Cloudflare Pages 后端 · CNAME · apex 割接）
+# permissions: 用仓库 secrets SEMAPHORE_URL / SEMAPHORE_API_TOKEN / SEMAPHORE_PROJECT_ID；值不入日志
+# tac_action: 手动派单即起单；confirm=yes 才放行；stage=4/all 触及 apex DNS 割接需逐字 apex_ack=CUTOVER
+# rollback: 派单只产生一条 task；步骤 4 之前不改 Vercel/DNS，割接可在信号灯 UI 复核输出并按需回退
+#
+# ── 上线四步（信号灯模板据此推进；本仓只承载工单，不承载 CF/GH/DNS 凭据）──
+#   1) Gitea media/navigation → GitHub 镜像推送，GitHub 仓成为真相源
+#   2) Cloudflare Pages 连接该 GitHub 仓：Build command 留空(免构建)，Output directory=仓库根(.)，Production branch=main
+#   3) 新增 CNAME：apex git4ta.fun + 六朵小花子域(/moli /muxu /tumi /zhuyu /meigui /qiangwei) → CF Pages
+#   4) 拆除 Vercel 对 apex 的反解析，apex 绑定 CF Pages（此步改 DNS，破坏性，割接前保留 Vercel 以便回退）
+name: 🚦 门面站开通 · 信号灯派单
+
+on:
+  workflow_dispatch:
+    inputs:
+      stage:
+        description: "执行哪一步（all=按 1→4 顺序全跑）"
+        type: choice
+        required: true
+        default: "1-mirror"
+        options:
+          - 1-mirror        # Gitea media/navigation → GitHub 镜像推送（真相源迁移）
+          - 2-cf-backend    # Cloudflare Pages 以 GitHub 仓为后端构建（免 build，输出=仓根，prod 分支=main）
+          - 3-cname         # 新增 CNAME：git4ta.fun 及六朵小花子域 → CF Pages
+          - 4-apex-cutover  # 拆除 Vercel apex 反解析，apex 绑定 CF Pages（破坏性·改 DNS）
+          - all
+      template_id:
+        description: "信号灯里『门面站开通』模板 id（主理人在 Semaphore 侧注册；本仓不含）"
+        type: string
+        required: true
+        default: ""
+      gh_repo:
+        description: "GitHub 目标仓全名 owner/repo（CF Pages 后端真相源）"
+        type: string
+        required: false
+        default: "Seek-Key-LTD/navigation"
+      domain:
+        description: "唯一主体域名（apex）"
+        type: string
+        required: false
+        default: "git4ta.fun"
+      confirm:
+        description: "起单确认闸门"
+        type: choice
+        required: true
+        default: "no"
+        options: [no, yes]
+      apex_ack:
+        description: "仅 stage=4-apex-cutover/all 需要：apex DNS 割接（Vercel→CF Pages）风险确认，逐字输入 CUTOVER"
+        type: string
+        required: false
+        default: ""
+
+jobs:
+  dispatch:
+    runs-on: [linux, amd64, nuc2]
+    steps:
+      - name: 下单到信号灯（Semaphore）
+        shell: bash
+        env:
+          S_URL:   ${{ secrets.SEMAPHORE_URL }}
+          S_TOK:   ${{ secrets.SEMAPHORE_API_TOKEN }}
+          S_PID:   ${{ secrets.SEMAPHORE_PROJECT_ID }}
+          STAGE:   ${{ inputs.stage }}
+          TID:     ${{ inputs.template_id }}
+          GHREPO:  ${{ inputs.gh_repo }}
+          DOMAIN:  ${{ inputs.domain }}
+          CONFIRM: ${{ inputs.confirm }}
+          APEX_ACK: ${{ inputs.apex_ack }}
+        run: |
+          set -euo pipefail
+          unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY ALL_PROXY all_proxy no_proxy NO_PROXY
+
+          # ---- 闸门：机密缺失 / 未确认 / 破坏性割接未逐字确认，一律拒绝起单 ----
+          test "$CONFIRM" = "yes" || { echo "❌ confirm 必须为 yes 才起单"; exit 1; }
+          { test -n "$S_URL" && test -n "$S_TOK" && test -n "$S_PID"; } || { echo "❌ 缺少 SEMAPHORE_* secrets（主理人在本仓 secrets 配置）"; exit 1; }
+          test -n "$TID" || { echo "❌ template_id 必填（信号灯『门面站开通』模板 id）"; exit 1; }
+          case "$STAGE" in
+            4-apex-cutover|all)
+              test "$APEX_ACK" = "CUTOVER" || { echo "❌ stage=$STAGE 触及 apex DNS 割接，需 apex_ack=CUTOVER"; exit 1; } ;;
+          esac
+
+          # ---- 运行手册（仅入日志给执行人看；参数经 extra-vars 传给模板）----
+          cat <<'RUNBOOK'
+== 上线四步 ==
+ 1) Gitea media/navigation → GitHub 镜像推送
+ 2) Cloudflare Pages 连接 GitHub 仓（免构建 / 输出=仓根 / prod=main）
+ 3) 新增 CNAME：apex + 六朵小花子域 → CF Pages
+ 4) 拆 Vercel apex 反解析，apex 绑定 CF Pages（改 DNS）
+RUNBOOK
+
+          # ---- 统一 HTTP 调用：不吞错、绝不回显密钥 ----
+          req() {
+            local out code url
+            out=$(mktemp)
+            url="${!#}"
+            code=$(curl -sS -o "$out" -w '%{http_code}' "$@" 2>/dev/null || echo 000)
+            if [ "$code" = "000" ] || [ "$code" -ge 400 ]; then
+              echo "  ❌ HTTP $code  $url"
+              echo "     body: $(head -c 300 "$out" | tr '\n' ' ')"
+              rm -f "$out"; exit 1
+            fi
+            cat "$out"; rm -f "$out"
+          }
+
+          echo "== 起单 stage=$STAGE gh_repo=$GHREPO domain=$DOMAIN template_id=$TID =="
+          # extra-vars 契约：nav_stage / nav_gh_repo / nav_domain（信号灯 Ansible 模板据此取参）
+          payload=$(TID="$TID" STAGE="$STAGE" GHREPO="$GHREPO" DOMAIN="$DOMAIN" python3 -c '
+          import json, os
+          body = {
+            "template_id": int(os.environ["TID"]),
+            "debug": False,
+            "arguments": json.dumps([
+              "-e", "nav_stage=" + os.environ["STAGE"],
+              "-e", "nav_gh_repo=" + os.environ["GHREPO"],
+              "-e", "nav_domain=" + os.environ["DOMAIN"],
+            ]),
+          }
+          print(json.dumps(body))')
+          req -X POST -H "Authorization: Bearer $S_TOK" -H 'Content-Type: application/json' \
+            -d "$payload" "$S_URL/api/project/$S_PID/tasks" \
+            | python3 -c "import sys,json;d=json.load(sys.stdin);print('  ✅ task id =',d.get('id'),'| status =',d.get('status'))"
