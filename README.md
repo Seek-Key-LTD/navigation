@@ -31,6 +31,23 @@
 | `sitemap.xml` | 目前仅根路径；小花挂出后逐条补充 |
 | `_headers` | CF Pages 安全响应头（nosniff / X-Frame-Options 等） |
 
+## 上线现状（2026-10-23 校准）
+
+| 项 | 值 |
+| --- | --- |
+| Gitea 真相源 | `media/navigation`（本仓） |
+| GitHub 镜像 | `Seek-Key-LTD/navigation`（default branch `main`，内容逐文件一致） |
+| CF Pages 项目 | `navigation`（源 = GitHub，`production_branch=main`） |
+| Pages 子域 | `https://navigation-ep9.pages.dev/` |
+| apex 自定义域 | `git4ta.fun` → CNAME `navigation-ep9.pages.dev`（自定义域 status=active，证书已签） |
+| 构建 | 免构建（`build_command` 空），输出目录 = 仓库根 |
+
+**回滚**：把 apex CNAME 改回 `68e19eebeab09d56.vercel-dns-017.com` 即可（Vercel 部署已由主理人删除）。
+
+> ⚠️ **内网注意**：内网 DNS（AdGuard CT122）有 300s TTL 缓存，割接后短时间内仍可能解析到
+> 旧 Vercel IP 并看到 404。**这是缓存，不是配置错误**——等 TTL 过期即恢复。
+> 验证方法：`dig +short @alfred.ns.cloudflare.com git4ta.fun A` 看权威答案。
+
 ## Cloudflare Pages 部署设置
 
 纯静态、无需构建：
