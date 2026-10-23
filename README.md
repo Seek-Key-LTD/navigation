@@ -6,15 +6,21 @@
 
 - 现阶段为<strong>非盈利期</strong>，所有主体统一挂在同一个<strong>个体工商户</strong>名下，
   `git4ta.fun` 是其<strong>唯一主体域名</strong>。
-- 本站是域名根节点的<strong>总览门面</strong>；六朵小花内容站（NotionNext 承载）按<strong>前缀 / 子路径</strong>
-  挂载于本域名之下（如 `/moli/`、`/muxu/` …），SEO 权重回流到这一枚域名。
+- 本站是域名根节点的<strong>总览门面</strong>；七朵小花内容站（六朵以 NotionNext 承载，紫罗兰以 3DGS 承载）按<strong>前缀 / 子路径</strong>
+  挂载于本域名之下（如 `/moli/`、`/muxu/` …、`/ziluolan/`），SEO 权重回流到这一枚域名。
 - 纯静态、零外部依赖、零构建工具（隐私友好、CF Pages 直读根目录）。
+
+## 署名（不入站）
+
+- 导航页只展<strong>七朵小花</strong>；<strong>格竹阁</strong>（夏竹 · 司马光笔，阁主本名）<strong>不入导航页</strong>，仅在此 README 与文档侧栏署名。
+- 取意「你们负责演，我负责写」：阁主是写人的人，凌驾群芳而不并列成花。
+- 紫罗兰为第七位，主理【无人值守 · 自运维 · 华夏祭坛】（3DGS / 太虚幻境入口），与组织<strong>若即若离</strong>。
 
 ## 文件
 
 | 文件 | 作用 |
 | --- | --- |
-| `index.html` | 总览首页（六朵小花 + 域名定位） |
+| `index.html` | 总览首页（七朵小花 + 域名定位） |
 | `styles.css` | 全站样式（系统字体、响应式、无外链） |
 | `404.html` | CF Pages 识别的 404 页 |
 | `robots.txt` | 允许全爬 + 指向 sitemap |
