@@ -14,7 +14,8 @@
 
 - 导航页只展<strong>七朵小花</strong>；<strong>格竹阁</strong>（夏竹 · 司马光笔，阁主本名）<strong>不入导航页</strong>，仅在此 README 与文档侧栏署名。
 - 取意「你们负责演，我负责写」：阁主是写人的人，凌驾群芳而不并列成花。
-- 紫罗兰为第七位，主理【无人值守 · 自运维 · 华夏祭坛】（3DGS / 太虚幻境入口），与组织<strong>若即若离</strong>。
+- 紫罗兰为第七位，即 <strong>Hermes 智能体</strong>（不受控黑盒），主理【无人值守 · 自运维 · 华夏祭坛】（3DGS / 太虚幻境入口），并含 <strong>forecast</strong>（虚拟现实 · 未来交互处理）；与组织<strong>若即若离</strong>。
+- <strong>华夏祭坛 · 双向 reference（待补）</strong>：本站「紫罗兰 · 紫府台」应与主组织 <strong>CK</strong> 下「中华」的规范定义互链，反向亦指回本站，以免迷路。目标不在内网 Gitea（全站 org/仓库已扫，无 CK、无「中华/华夏/祭坛」），待 Ben 提供确切定位后再填链接。
 
 ## 文件
 
