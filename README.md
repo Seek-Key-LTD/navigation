@@ -15,7 +15,10 @@
 - 导航页只展<strong>七朵小花</strong>；<strong>格竹阁</strong>（夏竹 · 司马光笔，阁主本名）<strong>不入导航页</strong>，仅在此 README 与文档侧栏署名。
 - 取意「你们负责演，我负责写」：阁主是写人的人，凌驾群芳而不并列成花。
 - 紫罗兰为第七位，即 <strong>Hermes 智能体</strong>（不受控黑盒），主理【无人值守 · 自运维 · 华夏祭坛】（3DGS / 太虚幻境入口），并含 <strong>forecast</strong>（虚拟现实 · 未来交互处理）；与组织<strong>若即若离</strong>。
-- <strong>华夏祭坛 · 双向 reference（待补）</strong>：本站「紫罗兰 · 紫府台」应与主组织 <strong>CK</strong> 下「中华」的规范定义互链，反向亦指回本站，以免迷路。目标不在内网 Gitea（全站 org/仓库已扫，无 CK、无「中华/华夏/祭坛」），待 Ben 提供确切定位后再填链接。
+- <strong>华夏祭坛 · 双向 reference</strong>：「紫罗兰 · 紫府台」=《鲲鹏志 · 无人值守自运维华夏祭坛》（主组织 <code>seekkey</code>，即你说的「CK」）。
+  - 规范正典（源）：<code>seekkey/kunpengzhi-altar</code>｜上层 <code>seekkey/kunpengzhi</code>｜AI 分叉 <code>seekkey/kunpengzhi-ai</code>（记忆银行 / 辩论引擎）。
+  - 在线装置：https://altar.git4ta.fun/ ｜ 主线正典文字稿：https://podcast.git4ta.fun/ 。
+  - <strong>正向</strong>：本页「紫罗兰 · 紫府台」卡片已直链 <code>altar.git4ta.fun</code>。<strong>反向</strong>：祭坛 README 需补一行「← 返回总览 https://git4ta.fun/」回指本站（该仓有 <code>.cnb.yml</code>/<code>.gitea</code> 触发，不擅推 main，交主理人 / PR / 信号灯落地）。
 
 ## 文件
 
