@@ -41,9 +41,17 @@
 | Pages 子域 | `https://navigation-ep9.pages.dev/` |
 | apex 自定义域 | `git4ta.fun` → CNAME `navigation-ep9.pages.dev`（自定义域 status=active，证书已签） |
 | 构建 | 免构建（`build_command` 空），输出目录 = 仓库根 |
+| pages.dev 封锁 | `_headers` 内 `X-Robots-Tag: noindex, nofollow`（**CF 的 pages.dev 无法真正禁用**，官方只提供 noindex 或 zone 级 Bulk Redirect；本账号 token 无 rulesets 权限） |
 
 **回滚**：把 apex CNAME 改回 `68e19eebeab09d56.vercel-dns-017.com` 即可（Vercel 部署已由主理人删除）。
 
+> ⚠️ **CF Pages 的两条硬约束（2026-10-23 实测）**：
+> ① `_headers` 里**不能写 `Location`** —— 它不在 CF Pages 的 header 白名单内，会让
+>    响应处理挂住，表现为 TLS 握手正常、证书正常、但响应永远不回来（连部署 URL 都空）。
+> ② `_redirects` **只按 path 匹配、不区分 host** —— 写 `/* → 主体域` 会把主体域自己也跳走，
+>    形成 301 死循环。
+>    要做「仅 pages.dev 跳转、主体域不动」，只能用 zone 级 Bulk Redirect（需更高权限）或 Worker。
+>
 > ⚠️ **内网注意**：内网 DNS（AdGuard CT122）有 300s TTL 缓存，割接后短时间内仍可能解析到
 > 旧 Vercel IP 并看到 404。**这是缓存，不是配置错误**——等 TTL 过期即恢复。
 > 验证方法：`dig +short @alfred.ns.cloudflare.com git4ta.fun A` 看权威答案。
