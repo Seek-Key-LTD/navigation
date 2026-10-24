@@ -212,12 +212,41 @@ code {
   justify-content: space-between;
   font-size: .82rem;
   margin-top: auto;
-  padding-top: 8px;
+  padding-top: 10px;
   border-top: 1px dashed #edf2f7;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 .card-domain {
   color: #8c959f;
   font-family: ui-monospace, SFMono-Regular, monospace;
+}
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.repo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: .78rem;
+  color: var(--muted);
+  background: #f1f3f5;
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.repo-link:hover {
+  color: var(--fg);
+  background: #e9ecef;
+  border-color: #ced4da;
+  text-decoration: none;
+}
+.repo-link svg {
+  flex-shrink: 0;
 }
 
 .badge {

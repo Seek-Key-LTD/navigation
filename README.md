@@ -15,10 +15,15 @@
 
 ## 站点矩阵全收录（三大板块）
 
-### 板块一：核心史诗与视听工坊（Core Epics & Studio）
-1. **《鲲鹏志》多媒体互动正典**：`https://kunpengzhi.git4ta.fun/` (3D 沉浸式世界观展示中心)
-2. **《三更道场》演播录音与文字台账**：`https://podcast.git4ta.fun/` (赛制合龙现场播客发布、全本文字底稿)
-3. **月亮 TV · Moon TV**：`https://tv.git4ta.fun/` (多元宇宙视频短片展映与生成式影像试验场)
+### 板块一：视听与媒体矩阵（Media Matrix & Player）
+1. **《三更道场》演播录音与文字台账**：`https://podcast.git4ta.fun/` (现场播客发布、文字底稿、对齐台本)
+   - 对应开源仓库：[`Seek-Key-LTD/kunpengzhi-podcast`](https://github.com/Seek-Key-LTD/kunpengzhi-podcast)
+2. **ASN on Air · 沉浸播放器 (Spotify 样式)**：`https://podcastplayer.git4ta.fun/` (现代化 Web 流媒体播放器，支持选集、伴听与全屏)
+3. **月亮 TV · Moon TV Plus**：`https://tv.git4ta.fun/` (多元宇宙视听展映与生成式影像试验场)
+   - 对应开源仓库：[`Seek-Key-LTD/MoonTVPlus`](https://github.com/Seek-Key-LTD/MoonTVPlus)
+4. **ASN-GAN · 生成对抗演播试验台**：`https://gan.git4ta.fun/` (基于 Streamlit 的实时生成式 AI 演播与特征可视化交互台)
+5. **Seek-Key 知识中心与常规赛专栏 (About ASN)**：`https://about-asn.git4ta.fun/` (Docusaurus 驱动的 ASN 智能体知识底座与赛事专栏)
+6. **《鲲鹏志》多媒体互动正典**：`https://kunpengzhi.git4ta.fun/` (3D 沉浸式世界观展示中心)
 
 ### 板块二：七朵小花叙事矩阵（Seven Flowers · Story Matrix）
 1. **茉莉 · 暗香榭**：`https://moli.git4ta.fun/` (内容主理席位)
