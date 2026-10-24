@@ -37,8 +37,9 @@
 ### 板块三：数字主权与协同基建（Sovereignty & Infrastructure）
 1. **Matrix 联邦通讯节点 (美区)**：`https://matrix.git4ta.fun/` (去中心化即时通讯与 Agent 现场总线)
 2. **Metabase 商业智能看板**：`https://metabase.git4ta.fun/` (全网叙事数据流与指标洞察)
-3. **GHPX 边缘加速镜像**：`https://ghpx.git4ta.fun/` (全球开源代码与资产高速缓存网关)
-4. **Cernet S3 存储分发网关**：`https://cernet-s3.git4ta.fun/` (教育网对象存储多媒体与模型资产分发)
+3. **Cernet S3 存储分发网关**：`https://cernet-s3.git4ta.fun/` (教育网对象存储多媒体与模型资产分发)
+
+> ⚠️ **内部基建保护原则**：`ghpx`（GitHub 边缘代理加速）等属于全机队自用免费配额基础设施，**严禁**挂入公开导航页，以防外部白嫖与额度挤占耗尽。
 
 ## 定位与主体性
 
