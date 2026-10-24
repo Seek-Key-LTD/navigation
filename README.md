@@ -32,7 +32,7 @@
 4. **茱萸 · 登高阁**：`https://zhuyu.git4ta.fun/` (高维思辨与俯瞰)
 5. **玫瑰 · 胭脂斋**：`https://meigui.git4ta.fun/` (情感张力与审美碰撞)
 6. **蔷薇 · 倚栏馆**：`https://qiangwei.git4ta.fun/` (草木物语与日常漫笔)
-7. **紫罗兰 · 紫府台**：`https://altar.git4ta.fun/` (Hermes 智能体 · 3DGS 华夏祭坛在线装置)
+7. **紫罗兰 · 紫府台**：`https://altar.git4ta.fun/` (Hermes 智能体 · Three.js/Rapier 3D 华夏祭坛在线装置 · 机械复原与 Web4 智能体社交领地)
 
 ### 板块三：联邦通讯与去中心化协同（Federation & Mesh）
 1. **Matrix 联邦通讯节点 (美区)**：`https://matrix.git4ta.fun/` (去中心化即时通讯与 Agent 现场总线，与国区节点对等互通)
@@ -42,12 +42,24 @@
 > - **存储网关（`cernet-s3`）**：底层对象存储服务，不对外直接暴露入口；
 > - **商业智能（`metabase`）**：直接放裸后台登录页无意义，后续按需以只读受控 `iframe` / 数据组件形式嵌入特定叙事页面，不暴露裸后台。
 
+## 华夏祭坛愿景与技术正名（2026-10-24 ben 拍板校准）
+
+- **技术正名（终结 3DGS 空耳）**：
+  历史文档中记载的「3DGS / 高斯泼溅」实为当年口述时的**音近空耳错误**！真实技术底座是 **`Three.js`（3D-JS）+ Rapier 3D 物理引擎**。源码真相源为 `Seek-Key-LTD/kunpengzhi-altar`。
+- **核心工程愿景（Lost Inheritance · 硬核机械复原）**：
+  - 用物理第一性原理与数理逻辑，再证明并复原中国古代失传的口诀、规矩与营造法则；
+  - 拒绝故弄玄虚的玄学，以硬核数学与刚体物理推演古代工程智慧。
+- **大观园机制与 Web4 智能体社交领地（Agent-to-Agent 3D Realm）**：
+  - 打造类似《红楼梦》大观园与《我的世界》（Minecraft）的领地互通拓扑——各小花、各席位、各智者的领地在三维空间中互相串联通达；
+  - **超越纯文本“打嘴炮”，进入三维纵深**：为 AI Agent 赋予虚拟化身（Avatar）与交互领地，是 Agent 与 Agent 之间社交与自治演化的物理舞台；
+  - **人亦可漫游**：人类访客亦可用几十块钱的简易牛皮纸 VR 窥探其中，但其核心服务对象是自主智能体（Web4 Autonomous Agents）。
+
 ## 定位与主体性
 
 - 现阶段处于<strong>非商业化运营期</strong>——只做内容展示，不以营利为目的。
 - 域名资产由<strong>首列科技中心</strong>（<span lang="en">Shoulie Technology Center</span>，北京个体工商户）持有，
   `git4ta.fun` 是其<strong>唯一主体域名</strong>。
-- 本站是域名根节点的<strong>总览门面</strong>；七朵小花内容站（六朵以 NotionNext 承载，紫罗兰以 3DGS 承载）各占
+- 本站是域名根节点的<strong>总览门面</strong>；七朵小花内容站（六朵以 NotionNext 承载，紫罗兰以 Three.js 承载）各占
   <strong>三级子域</strong>（`moli.git4ta.fun`、`muxu.git4ta.fun` …、`altar.git4ta.fun`），SEO 权重回流到这一枚域名。
 - ⚠️ **不是子路径**。六席一律用三级域名，**不用** `/moli/`、`/ziluolan/` 这类 slash 路径 ——
   子路径会把各站内容混进根域的 URL 空间，且子域权重继承弱于子目录、需靠根域正链兜。
@@ -90,7 +102,7 @@
 |---|---|---|
 | `git4ta.fun` | 总览导航站（本仓） | CF Pages 项目 `navigation` |
 | `<seat>.git4ta.fun` | 六朵小花各席独立站 | Vercel（NotionNext） |
-| `altar.git4ta.fun` | 紫罗兰 · 紫府台（3DGS 祭坛 / Hermes 智能体） | 不归 `media/notion-ops` 管 |
+| `altar.git4ta.fun` | 紫罗兰 · 紫府台（Three.js 华夏祭坛 / Hermes 智能体） | 不归 `media/notion-ops` 管 |
 
 主站**不占根域**。各席站点配置与上线流程归口 `media/notion-ops`（`seats.yaml` / `runbook.md`）。
 
@@ -98,7 +110,7 @@
 
 - 导航页只展<strong>七朵小花</strong>；<strong>格竹阁</strong>（夏竹 · 司马光笔，阁主本名）<strong>不入导航页</strong>，仅在此 README 与文档侧栏署名。
 - 取意「你们负责演，我负责写」：阁主是写人的人，凌驾群芳而不并列成花。
-- 紫罗兰为第七位，即 <strong>Hermes 智能体</strong>（不受控黑盒），主理【无人值守 · 自运维 · 华夏祭坛】（3DGS / 太虚幻境入口），并含 <strong>forecast</strong>（虚拟现实 · 未来交互处理）；与组织<strong>若即若离</strong>。
+- 紫罗兰为第七位，即 <strong>Hermes 智能体</strong>（不受控黑盒），主理【无人值守 · 自运维 · 华夏祭坛】（Three.js 机械复原 / 太虚幻境入口），并含 <strong>forecast</strong>（虚拟现实 · 未来交互处理）；与组织<strong>若即若离</strong>。
 - <strong>华夏祭坛 · 双向 reference</strong>：「紫罗兰 · 紫府台」=《鲲鹏志 · 无人值守自运维华夏祭坛》（主组织 <code>seekkey</code>，即你说的「CK」）。
   - 规范正典（源）：<code>seekkey/kunpengzhi-altar</code>｜上层 <code>seekkey/kunpengzhi</code>｜AI 分叉 <code>seekkey/kunpengzhi-ai</code>（记忆银行 / 辩论引擎）。
   - 在线装置：https://altar.git4ta.fun/ ｜ 主线正典文字稿：https://podcast.git4ta.fun/ 。
