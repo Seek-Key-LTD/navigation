@@ -4,13 +4,43 @@
 
 ## 定位
 
-- 现阶段为<strong>非盈利期</strong>，所有主体统一挂在同一个<strong>个体工商户</strong>名下，
+- 现阶段处于<strong>非商业化运营期</strong>——只做内容展示，不以营利为目的。
+- 域名资产由<strong>首列科技中心</strong>（<span lang="en">Shoulie Technology Center</span>，北京个体工商户）持有，
   `git4ta.fun` 是其<strong>唯一主体域名</strong>。
 - 本站是域名根节点的<strong>总览门面</strong>；七朵小花内容站（六朵以 NotionNext 承载，紫罗兰以 3DGS 承载）各占
   <strong>三级子域</strong>（`moli.git4ta.fun`、`muxu.git4ta.fun` …、`altar.git4ta.fun`），SEO 权重回流到这一枚域名。
 - ⚠️ **不是子路径**。六席一律用三级域名，**不用** `/moli/`、`/ziluolan/` 这类 slash 路径 ——
   子路径会把各站内容混进根域的 URL 空间，且子域权重继承弱于子目录、需靠根域正链兜。
 - 纯静态、零外部依赖、零构建工具（隐私友好、CF Pages 直读根目录）。
+
+## 主体性质（别搞混，2026-10-24 校准）
+
+> 之前这个站写「所有主体统一挂在个体工商户名下」——**表述不准**，已改。
+
+**三个必须分开的概念**：
+
+| 概念 | 本站的实际情况 |
+|---|---|
+| 谁持有域名资产 | **首列科技中心**（Shoulie Technology Center），北京个体工商户 |
+| 它是不是企业法人 | **不是。** 依《民法典》第 54 条，个体工商户规定在**自然人**章节；第 102 条的非法人组织只含个人独资企业、合伙企业等，不含个体工商户 |
+| 债务谁承担 | 第 56 条：个人经营以**个人财产**承担，家庭经营以**家庭财产**承担 |
+
+**对英文受众的口径**：个体工商户 ≈ **sole proprietorship / individual business**，
+对应英文里的 **individual proprietor**，**不是** `corporation` / `company` / `legal entity`。
+所以对外文案不要出现「企业法人」这种暗示公司人格的词。
+
+**同族其他主体**（发信席位台账见 `smtp-ops/vault/kv-smtp.md`）：
+
+| 主体 | 性质 |
+|---|---|
+| 首列科技中心 · Shoulie Technology Center | 北京**个体工商户**（现网在用，持有 `git4ta.fun`） |
+| 北京密钥科技 · SeekKey Beijing | 公司 |
+| 海口密钥科技 · SeekKey Haikou | 公司 |
+| 密钥科技海外 · SeekKey LLC | 美国法人 |
+| 密钥科技海外 · SeekKey Ltd | 英国法人 |
+
+**"非商业化运营期"说的是阶段，不是主体性质** —— 个体工商户本身就是可营利的经营主体，
+把「非盈利」和「个体工商户」并列会误导（个体工商户恰恰是能营利的）。措辞已拆开。
 
 ## 根域归属（既定规则，2026-10-23 定）
 
