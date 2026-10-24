@@ -22,8 +22,11 @@
 3. **月亮 TV · Moon TV Plus**：`https://tv.git4ta.fun/` (多元宇宙视听展映与生成式影像试验场)
    - 对应开源仓库：[`Seek-Key-LTD/MoonTVPlus`](https://github.com/Seek-Key-LTD/MoonTVPlus)
 4. **ASN-GAN · 生成对抗演播试验台**：`https://gan.git4ta.fun/` (基于 Streamlit 的实时生成式 AI 演播与特征可视化交互台)
-5. **Seek-Key 知识中心与常规赛专栏 (About ASN)**：`https://about-asn.git4ta.fun/` (Docusaurus 驱动的 ASN 智能体知识底座与赛事专栏)
-6. **《鲲鹏志》多媒体互动正典**：`https://kunpengzhi.git4ta.fun/` (3D 沉浸式世界观展示中心)
+5. **Agent 知识服务台 · Drupal Astro**：`https://asn.git4ta.fun/` (Drupal 11 Headless CMS + Astro 现代化超轻前端，26 个智能体文章发布与内容审计台)
+   - 对应开源仓库：[`Seek-Key-LTD/astro-drupal`](https://github.com/Seek-Key-LTD/astro-drupal)
+6. **Seek-Key 知识中心与常规赛专栏 (About ASN)**：`https://about-asn.git4ta.fun/` (Docusaurus 驱动的 ASN 智能体知识底座与赛事专栏)
+   - 对应开源仓库：[`Seek-Key-LTD/docusaurus-docs`](https://github.com/Seek-Key-LTD/docusaurus-docs)
+7. **《鲲鹏志》多媒体互动正典**：`https://kunpengzhi.git4ta.fun/` (3D 沉浸式世界观展示中心)
 
 ### 板块二：七朵小花叙事矩阵（Seven Flowers · Story Matrix）
 1. **茉莉 · 暗香榭**：`https://moli.git4ta.fun/` (内容主理席位)
