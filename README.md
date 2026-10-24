@@ -1,8 +1,41 @@
-# navigation — git4ta.fun 总览门面站
+# navigation — git4ta.fun 总览门面站（给他范儿 · 给他饭）
 
 `git4ta.fun` 的<strong>总览 / 导航</strong>静态站点，部署到 <strong>Cloudflare Pages</strong>。
 
-## 定位
+## 品牌哲学与精神内核（2026-10-24 ben 拍板校准）
+
+- **中文品牌名**：**给他范儿 · 给他饭**
+- **主标**：**以范为模，求真之粮**
+- **何谓「范」（Paradigm）**：
+  - 古时做商周青铜铸造有“陶范”，毕昇活字印刷有“范本”——“范”是有模有样、立规成矩的母模。
+  - 日本克隆小鼠复刻十余代终因随机误差累积而基因崩溃；对抗叙事衰变，绝不能在副本的副本（`copy of a copy`）里近亲繁殖，唯有回到最初的 Original Head，以软件工程（Story as Code）与 Apache AGE 图拓扑锁定因果真理。
+- **何谓「饭」（Sustenance）**：
+  - 当大洋彼岸的算力在重构代码与底层工具，算法工业却在以短剧快餐与工业饲料投喂眼球。
+  - 我们坚持做扎实饱腹、滋养心智的数字母粮。授人以渔，端出一碗自主可控、有滋有味、不随流量起舞的原创故事热饭。
+
+## 站点矩阵全收录（三大板块）
+
+### 板块一：核心史诗与视听工坊（Core Epics & Studio）
+1. **《鲲鹏志》多媒体互动正典**：`https://kunpengzhi.git4ta.fun/` (3D 沉浸式世界观展示中心)
+2. **《三更道场》演播录音与文字台账**：`https://podcast.git4ta.fun/` (赛制合龙现场播客发布、全本文字底稿)
+3. **月亮 TV · Moon TV**：`https://tv.git4ta.fun/` (多元宇宙视频短片展映与生成式影像试验场)
+
+### 板块二：七朵小花叙事矩阵（Seven Flowers · Story Matrix）
+1. **茉莉 · 暗香榭**：`https://moli.git4ta.fun/` (内容主理席位)
+2. **苜蓿 · 怀远苑**：`https://muxu.git4ta.fun/` (守园人席位)
+3. **荼蘼 · 饯春轩**：`https://tumi.git4ta.fun/` (终局与阶段复盘)
+4. **茱萸 · 登高阁**：`https://zhuyu.git4ta.fun/` (高维思辨与俯瞰)
+5. **玫瑰 · 胭脂斋**：`https://meigui.git4ta.fun/` (情感张力与审美碰撞)
+6. **蔷薇 · 倚栏馆**：`https://qiangwei.git4ta.fun/` (草木物语与日常漫笔)
+7. **紫罗兰 · 紫府台**：`https://altar.git4ta.fun/` (Hermes 智能体 · 3DGS 华夏祭坛在线装置)
+
+### 板块三：数字主权与协同基建（Sovereignty & Infrastructure）
+1. **Matrix 联邦通讯节点 (美区)**：`https://matrix.git4ta.fun/` (去中心化即时通讯与 Agent 现场总线)
+2. **Metabase 商业智能看板**：`https://metabase.git4ta.fun/` (全网叙事数据流与指标洞察)
+3. **GHPX 边缘加速镜像**：`https://ghpx.git4ta.fun/` (全球开源代码与资产高速缓存网关)
+4. **Cernet S3 存储分发网关**：`https://cernet-s3.git4ta.fun/` (教育网对象存储多媒体与模型资产分发)
+
+## 定位与主体性
 
 - 现阶段处于<strong>非商业化运营期</strong>——只做内容展示，不以营利为目的。
 - 域名资产由<strong>首列科技中心</strong>（<span lang="en">Shoulie Technology Center</span>，北京个体工商户）持有，
