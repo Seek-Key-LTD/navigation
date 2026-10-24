@@ -6,9 +6,23 @@
 
 - 现阶段为<strong>非盈利期</strong>，所有主体统一挂在同一个<strong>个体工商户</strong>名下，
   `git4ta.fun` 是其<strong>唯一主体域名</strong>。
-- 本站是域名根节点的<strong>总览门面</strong>；七朵小花内容站（六朵以 NotionNext 承载，紫罗兰以 3DGS 承载）按<strong>前缀 / 子路径</strong>
-  挂载于本域名之下（如 `/moli/`、`/muxu/` …、`/ziluolan/`），SEO 权重回流到这一枚域名。
+- 本站是域名根节点的<strong>总览门面</strong>；七朵小花内容站（六朵以 NotionNext 承载，紫罗兰以 3DGS 承载）各占
+  <strong>三级子域</strong>（`moli.git4ta.fun`、`muxu.git4ta.fun` …、`altar.git4ta.fun`），SEO 权重回流到这一枚域名。
+- ⚠️ **不是子路径**。六席一律用三级域名，**不用** `/moli/`、`/ziluolan/` 这类 slash 路径 ——
+  子路径会把各站内容混进根域的 URL 空间，且子域权重继承弱于子目录、需靠根域正链兜。
 - 纯静态、零外部依赖、零构建工具（隐私友好、CF Pages 直读根目录）。
+
+## 根域归属（既定规则，2026-10-23 定）
+
+**根域跑导航站 = 正常状态，不是被抢占。** 判断"根域该跑什么"先读这里，别当事故查。
+
+| 域 | 角色 | 托管 |
+|---|---|---|
+| `git4ta.fun` | 总览导航站（本仓） | CF Pages 项目 `navigation` |
+| `<seat>.git4ta.fun` | 六朵小花各席独立站 | Vercel（NotionNext） |
+| `altar.git4ta.fun` | 紫罗兰 · 紫府台（3DGS 祭坛 / Hermes 智能体） | 不归 `media/notion-ops` 管 |
+
+主站**不占根域**。各席站点配置与上线流程归口 `media/notion-ops`（`seats.yaml` / `runbook.md`）。
 
 ## 署名（不入站）
 
@@ -43,7 +57,12 @@
 | 构建 | 免构建（`build_command` 空），输出目录 = 仓库根 |
 | pages.dev 封锁 | `_headers` 内 `X-Robots-Tag: noindex, nofollow`（**CF 的 pages.dev 无法真正禁用**，官方只提供 noindex 或 zone 级 Bulk Redirect；本账号 token 无 rulesets 权限） |
 
-**回滚**：把 apex CNAME 改回 `68e19eebeab09d56.vercel-dns-017.com` 即可（Vercel 部署已由主理人删除）。
+**回滚**：把 apex CNAME 从 `navigation-ep9.pages.dev` 改回 `68e19eebeab09d56.vercel-dns-017.com` 即可
+（旧的 Vercel 部署已由主理人删除，回滚后 apex 会 404 —— 这只是应急退路）。
+
+> ⚠️ **别把"根域跑导航站"当事故来回滚**。2026-10-23 定：根域 = 总览门面，主站不占根域。
+> 各席内容站一律在三级子域。回滚 apex 到 Vercel 是**退回旧形态**，不是修复。
+> 要改的是各席站自己的 `NEXT_PUBLIC_LINK`（见 `media/notion-ops` 的 `known_gaps`）。
 
 > ⚠️ **CF Pages 的两条硬约束（2026-10-23 实测）**：
 > ① `_headers` 里**不能写 `Location`** —— 它不在 CF Pages 的 header 白名单内，会让
